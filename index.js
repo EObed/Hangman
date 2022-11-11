@@ -233,3 +233,33 @@ const initializer = () =>{
 
 //when the page loads
 window.onload = initializer
+
+//To select word from word list
+let wordPosition = Math.floor(Math.random()*212)+1
+wordToGuess = wordList[wordPosition]
+
+// split the letters of the word to guess into an array
+wordArray = wordToGuess.split("")
+
+// empty array to be used
+newWordArray = []
+
+//for each letter of the word add a dash to the empty array
+wordArray.forEach(element => {
+    newWordArray.push("_____")
+});
+
+//make the dashes appear in one line, with consecutive dashes sepearted by whitespace
+dashesDispalyed=newWordArray.join(' ')
+
+
+//To generate dashes for each letter of the word on the page
+document.querySelector(".dashes").innerHTML=dashesDispalyed
+
+
+let numOfTries =6
+let endOfGame=false
+
+while (endOfGame=false) {
+    
+}

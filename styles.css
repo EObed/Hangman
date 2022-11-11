@@ -51,10 +51,15 @@ img.image-displayed{
     height: 300px;
     width: 300px;
     margin-top: 5px;
+    align-items: center;
 }
 
 div.text-under-image{
     height: 60px;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
     
 }
 
