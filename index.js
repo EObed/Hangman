@@ -257,9 +257,39 @@ dashesDispalyed=newWordArray.join(' ')
 document.querySelector(".dashes").innerHTML=dashesDispalyed
 
 
+//To get value from the button
+const allButtons = document.querySelectorAll('input');
+
+allButtons.addEventListener("click", enterValue)
+
+function enterValue(e) {
+    var tbInput = document.getElementById("dashes");
+    tbInput.value = tbInput.value + e.value;
+    return true
+}
+
+//To disable button after click
+const button = document.querySelectorAll('input');
+
+button.addEventListener('click', disableButton);
+
+function disableButton() {
+  if (enterValue(e)) {
+    button.disabled = true;
+    button.value = 'Disabled';
+  }
+  
+}
+
+
 let numOfTries =6
 let endOfGame=false
 
 while (endOfGame=false) {
+    if (condition) {
+        
+    } else {
+        
+    }
     
 }

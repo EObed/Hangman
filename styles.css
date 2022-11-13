@@ -95,7 +95,7 @@ input[type=button]{
     font-family: cursive;
 }
 
-button:hover{
+input:hover{
     background-color: gray;
 }
 
