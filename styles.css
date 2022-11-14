@@ -72,9 +72,21 @@ div.keypad{
     flex-direction: column;
 }
 
-div.dashes{
-    text-align: center;
+div.dashes {
+    margin: 0 auto;
 }
+
+div.dashes input{
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    color: black;
+    font-style: italic;
+    font-size: 20px;
+    outline: none;
+}
+
 
 div.top-row{
     margin: 10px;

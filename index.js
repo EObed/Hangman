@@ -238,48 +238,57 @@ window.onload = initializer
 let wordPosition = Math.floor(Math.random()*212)+1
 wordToGuess = wordList[wordPosition]
 
+
 // split the letters of the word to guess into an array
 wordArray = wordToGuess.split("")
+
 
 // empty array to be used
 newWordArray = []
 
-//for each letter of the word add a dash to the empty array
+//for each letter of the word add a textbox to the empty array
 wordArray.forEach(element => {
-    newWordArray.push("_____")
+    newWordArray.push(`<input type="text" value="" readonly></input>`)
 });
 
-//make the dashes appear in one line, with consecutive dashes sepearted by whitespace
+    
+//make the textbox appear in one line, with consecutive dashes sepearted by whitespace
 dashesDispalyed=newWordArray.join(' ')
 
-
-//To generate dashes for each letter of the word on the page
+//To generate textbox for each letter of the word on the page
 document.querySelector(".dashes").innerHTML=dashesDispalyed
 
 
-//To get value from the button
-const allButtons = document.querySelectorAll('input');
+//To get value from the button and disable it
+const allButtons = document.querySelector(".keypad");
+allButtons.addEventListener('click', enterValue);
 
-allButtons.addEventListener("click", enterValue)
+function enterValue(e){
+   if(e.target.nodeName === "INPUT"){
+    let letter = e.target.value.toLowerCase();
+    e.target.disabled = true;
 
-function enterValue(e) {
-    var tbInput = document.getElementById("dashes");
-    tbInput.value = tbInput.value + e.value;
-    return true
+    findLetter(letter); //find the letter in the wordArray and insert into the input box if found. 
+    
+   }
 }
 
-//To disable button after click
-const button = document.querySelectorAll('input');
-
-button.addEventListener('click', disableButton);
-
-function disableButton() {
-  if (enterValue(e)) {
-    button.disabled = true;
-    button.value = 'Disabled';
-  }
+function findLetter(letter){
+    wordArray.forEach((l, index)=>{
+        if(l == letter){
+            newWordArray[index] = `<input type="text" value="${letter.toUpperCase()}" readonly></input>`; //Update the newWordArray when the right letter is guessed
   
+            showLetter();//To display the letter when found
+        }
+        
+    })
 }
+
+function showLetter(){   //To display the letter when found
+    document.querySelector(".dashes").innerHTML = newWordArray.join(' '); 
+}
+
+
 
 
 let numOfTries =6
