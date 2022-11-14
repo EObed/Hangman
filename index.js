@@ -1,9 +1,10 @@
 //initial references
-let imageDisplayed = document.getElementsByClassName("image-displayed");
+let imageDisplayed = document.querySelector(".image-displayed");
 let textUnderImage = document.getElementsByClassName("text-under-image");
 let dashes = document.getElementsByClassName("dashes");
 let keypad = document.getElementsByClassName("keypad");
 
+console.log(imageDisplayed)
 //word list
 let wordList = [
     "abruptly",
@@ -273,20 +274,55 @@ function enterValue(e){
    }
 }
 
+let tries = 0;
 function findLetter(letter){
-    wordArray.forEach((l, index)=>{
+    let foundLetter = false; //We initially assume the letter is not found
+
+    wordArray.forEach((l, index)=>{ //looping through the wordArray to find the letter
         if(l == letter){
+            foundLetter = true; // we assign true when the letter has been found
             newWordArray[index] = `<input type="text" value="${letter.toUpperCase()}" readonly></input>`; //Update the newWordArray when the right letter is guessed
   
             showLetter();//To display the letter when found
         }
-        
     })
+
+    updateHangmanImage(foundLetter);
+
+    
+}
+
+function updateHangmanImage(foundLetter){ //Update the hangman image when the letter is not found per the number of tries
+    if(foundLetter == false){ 
+        tries++;
+        switch(tries){
+            case 1: 
+                imageDisplayed.src = "images\\hangman-1.jpg";
+                break;
+            case 2: 
+                imageDisplayed.src = "images\\hangman-2.jpg";
+                break;
+            case 3: 
+                imageDisplayed.src = "images\\hangman-3.jpg";
+                break;
+            case 4: 
+                imageDisplayed.src = "images\\hangman-4.jpg";
+                break;
+            case 5: 
+                imageDisplayed.src = "images\\hangman-5.jpg";
+                break;
+            case 6: 
+                imageDisplayed.src = "images\\hangman-6.jpg";
+                break;
+        }
+        
+    }
 }
 
 function showLetter(){   //To display the letter when found
     document.querySelector(".dashes").innerHTML = newWordArray.join(' '); 
 }
+
 
 
 
