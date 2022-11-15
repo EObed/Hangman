@@ -222,18 +222,7 @@ let wordList = [
     "zombie",
 ];
 
-let winCount = 0
-let count = 0
-let chosenWord = ''
 
-//initial function which is called when page loads
-const initializer = () =>{
-    winCount = 0
-    count = 0
-}
-
-//when the page loads
-window.onload = initializer
 
 //To select word from word list
 let wordPosition = Math.floor(Math.random()*212)+1
