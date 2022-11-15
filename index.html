@@ -19,7 +19,10 @@
                             alt="Hangman's Noose" />
                     </div>
                     <div class="text-under-image">
-                        <p>6 tries remaining</p>
+                        <div id="change-this"><p>6 tries remaining</p></div>
+                        <div id="refresh-page">
+                        <p></p>
+                        </div>
                     </div>
                 </div>
                 <div class="keypad-and-dashes">
@@ -29,25 +32,28 @@
                     </div>
                     <div class="keypad">
                         <div class="top-row">
-                            <input id="Q-but" type="button" value="Q" > <input id="W-but" type="button" value="W" >
-                            <input id="E-but" type="button" value="E" > <input id="R-but" type="button" value="R" >
-                            <input id="T-but" type="button" value="T" > <input id="Y-but" type="button" value="Y" >
-                            <input id="U-but" type="button" value="U" > <input id="I-but" type="button" value="I" >
-                            <input id="O-but" type="button" value="O" > <input id="P-but" type="button" value="P" >
+                            <input id="Q-but" type="button" value="Q" class="but"> <input id="W-but" type="button" value="W" class="but">
+                            <input id="E-but" type="button" value="E" class="but"> <input id="R-but" type="button" value="R" class="but">
+                            <input id="T-but" type="button" value="T" class="but"> <input id="Y-but" type="button" value="Y" class="but">
+                            <input id="U-but" type="button" value="U" class="but"> <input id="I-but" type="button" value="I" class="but">
+                            <input id="O-but" type="button" value="O" class="but"> <input id="P-but" type="button" value="P" class="but">
                         </div>
                         <div class="middle-row">
-                            <input id="A-but" type="button" value="A" > <input id="S-but" type="button" value="S" >
-                            <input id="D-but" type="button" value="D" > <input id="F-but" type="button" value="F" >
-                            <input id="G-but" type="button" value="G" > <input id="H-but" type="button" value="H" >
-                            <input id="J-but" type="button" value="J" > <input id="K-but" type="button" value="K" >
-                            <input id="L-but" type="button" value="L" >
+                            <input id="A-but" type="button" value="A" class="but"> <input id="S-but" type="button" value="S" class="but">
+                            <input id="D-but" type="button" value="D" class="but"> <input id="F-but" type="button" value="F" class="but">
+                            <input id="G-but" type="button" value="G" class="but"> <input id="H-but" type="button" value="H" class="but">
+                            <input id="J-but" type="button" value="J" class="but"> <input id="K-but" type="button" value="K" class="but">
+                            <input id="L-but" type="button" value="L" class="but">
                         </div>
                         <div class="bottom-row">
-                            <input id="Z-but" type="button" value="Z" > <input id="X-but" type="button" value="X" >
-                            <input id="C-but" type="button" value="C" > <input id="V-but" type="button" value="V" >
-                            <input id="B-but" type="button" value="B" > <input id="N-but" type="button" value="N" >
-                            <input id="M-but" type="button" value="M" >
+                            <input id="Z-but" type="button" value="Z" class="but"> <input id="X-but" type="button" value="X" class="but">
+                            <input id="C-but" type="button" value="C" class="but"> <input id="V-but" type="button" value="V" class="but">
+                            <input id="B-but" type="button" value="B" class="but"> <input id="N-but" type="button" value="N" class="but">
+                            <input id="M-but" type="button" value="M" class="but">
                         </div>
+                    </div>
+                    <div id="word-to-guess" class="word-to-guess">
+                        <p></p>
                     </div>
                 </div>
             </div>

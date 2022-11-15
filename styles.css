@@ -111,3 +111,10 @@ input:hover{
     background-color: gray;
 }
 
+div.word-to-guess{
+    margin-top: 20px;
+    font-family: cursive;
+    font-style: italic;
+    text-align: center;
+    font-size: 30px;
+}

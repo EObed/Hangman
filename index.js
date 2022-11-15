@@ -298,21 +298,33 @@ function updateHangmanImage(foundLetter){ //Update the hangman image when the le
         switch(tries){
             case 1: 
                 imageDisplayed.src = "images\\hangman-1.jpg";
+                document.getElementById("change-this").innerHTML="5 tries remaining"
                 break;
             case 2: 
                 imageDisplayed.src = "images\\hangman-2.jpg";
+                document.getElementById("change-this").innerHTML="4 tries remaining"
                 break;
             case 3: 
                 imageDisplayed.src = "images\\hangman-3.jpg";
+                document.getElementById("change-this").innerHTML="3 tries remaining"
                 break;
             case 4: 
                 imageDisplayed.src = "images\\hangman-4.jpg";
+                document.getElementById("change-this").innerHTML="2 tries remaining"
                 break;
             case 5: 
                 imageDisplayed.src = "images\\hangman-5.jpg";
+                document.getElementById("change-this").innerHTML="1 try remaining"
                 break;
             case 6: 
                 imageDisplayed.src = "images\\hangman-6.jpg";
+                document.getElementById("change-this").innerHTML="Game Over 💀"
+                document.getElementById("refresh-page").innerHTML="Refresh page to play again"
+                document.getElementById("word-to-guess").innerHTML="The word to guess was "+wordToGuess
+                var elems = document.getElementsByClassName("but");
+                for(var i = 0; i < elems.length; i++) {
+                    elems[i].disabled = true;
+                    }
                 break;
         }
         
