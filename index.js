@@ -277,9 +277,11 @@ function findLetter(letter){
     })
 
     updateHangmanImage(foundLetter);
-
-    
 }
+
+//To disable keyboard after all letters are guessed
+
+
 
 function updateHangmanImage(foundLetter){ //Update the hangman image when the letter is not found per the number of tries
     if(foundLetter == false){ 
