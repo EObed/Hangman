@@ -4,7 +4,6 @@ let textUnderImage = document.getElementsByClassName("text-under-image");
 let dashes = document.getElementsByClassName("dashes");
 let keypad = document.getElementsByClassName("keypad");
 
-console.log(imageDisplayed)
 //word list
 let wordList = [
     "abruptly",
@@ -223,7 +222,6 @@ let wordList = [
 ];
 
 
-
 //To select word from word list
 let wordPosition = Math.floor(Math.random()*212)+1
 wordToGuess = wordList[wordPosition]
@@ -264,23 +262,29 @@ function enterValue(e){
 }
 
 let tries = 0;
+let numOfLettersGuessed = 0;
 function findLetter(letter){
     let foundLetter = false; //We initially assume the letter is not found
-
+    
     wordArray.forEach((l, index)=>{ //looping through the wordArray to find the letter
         if(l == letter){
             foundLetter = true; // we assign true when the letter has been found
             newWordArray[index] = `<input type="text" value="${letter.toUpperCase()}" readonly></input>`; //Update the newWordArray when the right letter is guessed
-  
+            numOfLettersGuessed++;
             showLetter();//To display the letter when found
         }
+        disableKeyboardAfterWordGuessed();
     })
 
     updateHangmanImage(foundLetter);
 }
 
 //To disable keyboard after all letters are guessed
-
+function disableKeyboardAfterWordGuessed(){
+    if(wordArray.length == numOfLettersGuessed){
+        disableKeyboard();
+    }
+}
 
 
 function updateHangmanImage(foundLetter){ //Update the hangman image when the letter is not found per the number of tries
@@ -312,15 +316,20 @@ function updateHangmanImage(foundLetter){ //Update the hangman image when the le
                 document.getElementById("change-this").innerHTML="Game Over 💀"
                 document.getElementById("refresh-page").innerHTML="Refresh page to play again"
                 document.getElementById("word-to-guess").innerHTML="The word to guess was "+wordToGuess
-                var elems = document.getElementsByClassName("but");
-                for(var i = 0; i < elems.length; i++) {
-                    elems[i].disabled = true;
-                    }
+                disableKeyboard();
                 break;
         }
         
     }
 }
+
+let elems = document.getElementsByClassName("but");
+function disableKeyboard(){
+        for(let i = 0; i < elems.length; i++) {
+            elems[i].disabled = true;
+            }
+}
+
 
 function showLetter(){   //To display the letter when found
     document.querySelector(".dashes").innerHTML = newWordArray.join(' '); 
