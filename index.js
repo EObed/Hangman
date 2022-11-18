@@ -284,7 +284,7 @@ function disableKeyboardAfterWordGuessed(){
     if(wordArray.length == numOfLettersGuessed){
         disableKeyboard();
         document.getElementById("change-this").innerHTML="Congratulations🎉. You correctly guessed the word."
-        
+        document.getElementById("refresh-page").innerHTML="Refresh page to play again"
     }
 }
 
