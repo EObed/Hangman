@@ -251,15 +251,27 @@ document.querySelector(".dashes").innerHTML=dashesDispalyed
 const allButtons = document.querySelector(".keypad");
 allButtons.addEventListener('click', enterValue);
 
+
 function enterValue(e){
    if(e.target.nodeName === "INPUT"){
-    let letter = e.target.value.toLowerCase();
+    let letter1 = e.target.value.toLowerCase();
     e.target.disabled = true;
 
-    findLetter(letter); //find the letter in the wordArray and insert into the input box if found. 
+    findLetter(letter1); //find the letter in the wordArray and insert into the input box if found. 
     
    }
 }
+
+//To get value from keyboard
+document.addEventListener('keydown', function(keyBoardPress){
+    var keyboardKey = keyBoardPress.key
+    findLetter(keyboardKey)
+});
+
+
+
+
+
 
 let tries = 0;
 let numOfLettersGuessed = 0;
